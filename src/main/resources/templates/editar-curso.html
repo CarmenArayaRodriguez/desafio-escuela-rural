@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Editar Curso</title>
+  <!-- Enlace al CSS de Bootstrap -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+<h1 class="text-center mb-4">Editar Curso: <span th:text="${curso.nivel} + 'º ' + ${curso.letra}"></span></h1>
+<form th:action="@{/cursos/editar/{id}(id=${curso.id})}" th:method="post">
+  <div class="form-group">
+    <label for="nivel">Nivel del Curso:</label>
+    <input type="number" id="nivel" name="nivel" th:value="${curso.nivel}" class="form-control" required>
+  </div>
+  <div class="form-group">
+    <label for="letra">Letra del Curso:</label>
+    <input type="text" id="letra" name="letra" th:value="${curso.letra}" maxlength="1" class="form-control" required>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Actualizar Curso</button>
+  </div>
+</form>
+</body>
+</html>

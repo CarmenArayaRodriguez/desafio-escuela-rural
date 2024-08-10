@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Estudiante</title>
+    <!-- Enlace al CSS de Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+<h1 class="text-center mb-4">Agregar Nuevo Estudiante</h1>
+<form th:action="@{/estudiantes/guardar}" th:method="post">
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="curso">Curso:</label>
+        <select id="curso" name="cursoId" class="form-control">
+            <option value="">Seleccione un curso</option>
+            <option th:each="curso : ${cursos}" th:value="${curso.id}" th:text="${curso.nivel + ' º ' + curso.letra}">Descripción del Curso</option>
+        </select>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Guardar Estudiante</button>
+    </div>
+</form>
+</body>
+</html>
+

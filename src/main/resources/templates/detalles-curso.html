@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalles del Curso</title>
+    <!-- Enlace al CSS de Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+<h1 class="text-center mb-4">Estudiantes del Curso: <span th:text="${curso.nivel != null ? (curso.nivel + 'º ' + curso.letra) : 'Curso sin nivel especificado'}"></span></h1>
+<ul class="list-group mb-4">
+    <li class="list-group-item d-flex justify-content-between align-items-center" th:each="estudiante : ${curso.estudiantes}">
+        <span th:text="${estudiante.nombre + ' ' + estudiante.apellido}"></span>
+        <div>
+            <a th:href="@{/estudiantes/editar/{id}(id=${estudiante.id})}" class="btn btn-warning btn-sm">Editar</a>
+            <form th:action="@{/estudiantes/eliminar/{id}(id=${estudiante.id})}" method="post" style="display:inline;">
+                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro?');">Eliminar</button>
+            </form>
+        </div>
+    </li>
+</ul>
+<a th:href="@{/estudiantes/crear}" class="btn btn-primary mb-3">Agregar Nuevo Estudiante</a>
+<br>
+
+<a th:href="@{/}" class="btn btn-secondary">Volver al Inicio</a>
+</body>
+</html>

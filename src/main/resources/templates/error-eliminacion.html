@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Error al Eliminar Curso</title>
+    <!-- Enlace al CSS de Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5 text-center">
+<h1 th:text="${mensaje}" class="text-danger mb-4"></h1>
+<a th:href="@{/cursos}" class="btn btn-primary">Volver a la lista de cursos</a>
+</body>
+</html>

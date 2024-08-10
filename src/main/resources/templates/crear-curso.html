@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Curso</title>
+    <!-- Enlace al CSS de Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+<h1 class="text-center mb-4">Crear un Nuevo Curso</h1>
+<form th:action="@{/cursos}" th:method="post">
+    <div class="form-group">
+        <label for="nivel">Nivel del Curso:</label>
+        <input type="number" id="nivel" name="nivel" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="letra">Letra del Curso:</label>
+        <input type="text" id="letra" name="letra" maxlength="1" class="form-control" required>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Guardar Curso</button>
+    </div>
+</form>
+</body>
+</html>
